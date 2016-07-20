@@ -1,0 +1,12 @@
+extends base
+
+block title
+  title= page.tag + ' | ' + config.title
+block content
+  each tags in _.groupBy(site.tags.toArray(), function(p){return page.tag})
+    ul.listing
+      for tag in tags
+        li
+          h4
+            a(href=url_for(tag.path))= _.split(tag.path,'\/')[1]
+  include _partial/paginator.jade
