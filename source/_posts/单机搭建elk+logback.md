@@ -1,14 +1,15 @@
 ---
-title: 单机搭建elk+logback
+title: 单机搭建 elk + logback
 toc: true
 date: 2016-07-16 15:53:17
 tags: elk
 categories: 编程
 ---
+elk是开源日志分析平台，由[elastic](http://www.elastic.co)公司的三款开源产品组成。
 
 
 ### 1. 准备工作
-下载elasticsearch、logstash、kibana
+下载elasticsearch、logstash、kibana。
 
 ### 2. 安装
 
@@ -104,9 +105,9 @@ elasticsearch.url: "http://node1:9200"
 ```
 bin/kibana
 ```
-### 3.log
-#### 3.1 log4j
-logstash有log4j的input插件，所以使用log4j可以很容易将日志收集到logstash
+### 3.收集日志
+#### 3.1 使用 log4j 收集日志
+logstash 有 log4j 的 input 插件，所以使用 log4j 可以很容易将日志收集到 logstash 。
 
 ***Log4jTest.java***
 ```java
@@ -140,11 +141,11 @@ log4j.appender.logstash.remoteHost=127.0.0.1
 
 log4j.rootLogger=debug,stdout,file,logstash
 ```
-运行程序可在kibana中看到日志
+运行程序可在 kibana 中看到日志。
 
-#### 3.2 logback
-logstash没有logback的插件，所以可以使用tcp收集日志（效果不好，官方也不建议在生产环境使用tcp方式）
-
+#### 3.2 使用 logback 收集日志
+logstash 没有 logback 的插件，可以使用 tcp 方式收集日志（效果不好，官方也不建议在生产环境使用tcp方式）。
+##### 3.2.1 tcp 方式
 ***logback.xml***
 ```
 <configuration>
@@ -170,11 +171,11 @@ logstash没有logback的插件，所以可以使用tcp收集日志（效果不�
 </configuration>
 ```
 
-#### 3.3 logback + redis
+##### 3.2.2 logback + redis
 
-使用redis作为消息队列
+使用 redis 作为消息队列，需要用到 logback-rides 的开源包。
 
-##### 3.3.1 安装redis
+安装redis
 
 ```
 tar -zxf redis-3.2.0.tar.gz
@@ -182,12 +183,12 @@ cd redis-3.2.0/
 sudo make
 sudo make install
 ```
->注：如果logstash和redis不在同一台机器，需要修改***redis.conf***
+注：如果logstash和redis不在同一台机器，需要修改***redis.conf***
 ```
 #bind 127.0.0.1
 protected-mode no
 ```
-#####启动
+启动
 ```
 /usr/local/bin/redis-server
 ```
@@ -242,6 +243,3 @@ public class LogbackTest {
 
 </configuration>
 ```
->在看elk文档的时候了解到elk的流程为：
-
-在使用的时候，可将变为如下结构：
