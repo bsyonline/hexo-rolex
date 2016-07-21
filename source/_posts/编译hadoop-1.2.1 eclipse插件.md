@@ -6,15 +6,15 @@ tags: hadoop
 categories: 大数据
 ---
 
-### 安装ant
-安装过程略，可参考[ant环境安装](../../../2016/07/19/ant环境安装/)。
-### 下载和解压
+### 1. 安装ant
+安装过程略，可参考[ant 环境安装](../../../2016/07/19/ant 环境安装/)。
+### 1.1 下载和解压
 ```
 wget https://archive.apache.org/dist/hadoop/common/hadoop-1.2.1/hadoop-1.2.1.tar.gz
 tar -zxf hadoop-1.2.1.tar.gz
 ```
-### 修改配置文件
-#### **hadoop-1.2.1\\src\\contrib\\eclipse-plugin\\build.xml**
+### 2. 修改配置文件
+#### 2.1 **hadoop-1.2.1\\src\\contrib\\eclipse-plugin\\build.xml**
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
@@ -108,7 +108,7 @@ tar -zxf hadoop-1.2.1.tar.gz
 </project>
 
 ```
-#### **hadoop-1.2.1\src\contrib\build-contrib.xml**
+#### 2.2 **hadoop-1.2.1\src\contrib\build-contrib.xml**
 ```
 <?xml version="1.0"?>
 
@@ -616,7 +616,7 @@ tar -zxf hadoop-1.2.1.tar.gz
 </project>
 ```
 
-#### **hadoop-1.2.1\src\contrib\eclipse-plugin\META-INF\MANIFEST.MF**
+#### 2.3 **hadoop-1.2.1\src\contrib\eclipse-plugin\META-INF\MANIFEST.MF**
 ```
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
@@ -647,7 +647,7 @@ Bundle-ClassPath: classes/,lib/hadoop-core.jar,lib/jackson-core-asl-1.8.8.jar ,l
 Bundle-Vendor: Apache Hadoop
 ```
 
-### 编译
+### 3. 编译
 配置文件修改完成后，使用ant进行编译（过程需要联网）。
 ```
 ant D:\hadoop\hadoop-1.2.1\src\contrib\eclipse-plugin\build.xml
