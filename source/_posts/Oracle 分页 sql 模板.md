@@ -1,9 +1,9 @@
 ---
 title: Oracle分页sql模板
-toc: true
+toc: false
 date: 2016-07-16 15:53:54
 tags: oracle
-categories: technology
+categories: 数据库
 ---
 
 Oracle通过ROWNUM进行分页，通过子查询实现。
