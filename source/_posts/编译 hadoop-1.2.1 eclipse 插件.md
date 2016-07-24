@@ -2,7 +2,7 @@
 title: 编译 hadoop-1.2.1 eclipse 插件
 toc: true
 date: 2016-07-16 15:45:46
-tags: hadoop
+tags: Hadoop
 categories: 大数据
 ---
 
