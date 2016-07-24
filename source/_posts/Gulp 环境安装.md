@@ -6,7 +6,7 @@ tags: gulp
 categories: 前端
 ---
 
-gulp是一个前端代码构建工具。安装gulp需要node.js环境，node.js环境安装参考[node.js 环境安装](../../../2016/07/16/node.js 环境安装/)。
+gulp是一个前端代码构建工具。安装gulp需要node.js环境，node.js环境安装参考 [node.js 环境安装](../../../../2016/07/16/node.js 环境安装/) 。
 ### 全局安装gulp命令行工具
 ```
 npm install -g gulp

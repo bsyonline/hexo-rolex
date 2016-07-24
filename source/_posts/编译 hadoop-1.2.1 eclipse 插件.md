@@ -7,7 +7,7 @@ categories: 大数据
 ---
 
 ### 1. 安装ant
-安装过程略，可参考[Ant 环境安装](../../../2016/07/19/Ant 环境安装/)。
+安装过程略，可参考 [Ant 环境安装](../../../../2016/07/19/Ant 环境安装/)。
 ### 1.1 下载和解压
 ```
 wget https://archive.apache.org/dist/hadoop/common/hadoop-1.2.1/hadoop-1.2.1.tar.gz
