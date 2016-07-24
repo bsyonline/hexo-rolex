@@ -3,7 +3,7 @@ title: 拷贝vmware文件方式创建虚拟机
 toc: false
 date: 2016-07-16 15:53:17
 tags: vmware
-categories: linux
+categories: Linux
 ---
 
 ### vmware打开文件
