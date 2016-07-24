@@ -2,8 +2,8 @@
 title: Oracle Clob 格式处理
 toc: true
 date: 2016-07-16 15:53:49
-tags:
-categories:
+tags: Oracle
+categories: 数据库
 ---
 
 
