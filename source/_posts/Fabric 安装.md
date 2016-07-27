@@ -3,7 +3,7 @@ title: fabric安装
 toc: true
 date: 2016-07-16 15:45:09
 tags: fabric
-categories: technology
+categories: Linux
 ---
 
 
@@ -16,11 +16,11 @@ sudo yum install -y gcc
 sudo yum install -y wget  
 sudo yum install -y python-pip  
 ```
-###2. 安装fabric
+### 2. 安装fabric
 ```shell
 sudo pip install fabric
 ```
-###3. 验证
+### 3. 验证
 
 ```shell
 python -c "from fabric.api import * ; print env.version"

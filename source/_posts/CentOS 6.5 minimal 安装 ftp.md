@@ -11,8 +11,8 @@ categories: Linux
 
 **/etc/resolv.conf**
 ```shell
-	nameserver 8.8.8.8
-	nameserver 4.4.4.4
+nameserver 8.8.8.8
+nameserver 4.4.4.4
 ```
 ###2. 安装ftp
 ```shell

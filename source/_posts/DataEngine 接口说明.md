@@ -3,7 +3,7 @@ title: dataengine框架结构
 toc: true
 date: 2016-07-15 22:25:09
 tags: chinadaas
-categories: technology
+categories: chinadaas
 ---
 ### 1. 数据流
 hdfs到hbase

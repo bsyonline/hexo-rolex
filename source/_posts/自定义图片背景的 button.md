@@ -3,7 +3,7 @@ title: 自定义图片背景的button
 toc: false
 date: 2012-07-15 22:25:09
 tags: blackberry
-categories: technology
+categories: 编程
 ---
 
 <!--more-->

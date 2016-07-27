@@ -1,9 +1,9 @@
 ---
 title: Bloom Filter
-toc: true
+toc: false
 date: 2016-07-16 15:45:57
 tags: hadoop
-categories: technology
+categories: 大数据
 ---
 
 bloom filter是一种节省空间的数据结构。

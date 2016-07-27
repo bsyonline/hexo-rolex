@@ -1,8 +1,8 @@
 ---
-title: docker笔记
+title: Docker 笔记
 date: 2016-07-14 19:20:12
-tags: docker
-categories: technology
+tags: Docker
+categories: Docker
 ---
 
 #### 1. 安装

@@ -1,9 +1,9 @@
 ---
-title: elasticsearch检索
+title: Elasticsearch 检索
 toc: true
 date: 2016-07-15 22:25:09
-tags: docker
-categories: technology
+tags: Elasticsearch
+categories: Elasticsearch
 ---
 
 

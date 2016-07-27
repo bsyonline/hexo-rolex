@@ -1,25 +1,25 @@
 ---
-title: ELK日志分析系统搭建和使用
+title: ELK 日志分析系统搭建和使用
 toc: true
 date: 2016-07-15 22:25:09
-tags: elk
-categories: technology
+tags: ELK
+categories: ELK
 ---
 
 <!--more-->
 
-### 1. 下载logstash
+### 1. 下载 logstash
 ```
 sudo docker pull logstash
 ```
 
-### 2. 下载elasticsearch
+### 2. 下载 elasticsearch
 
 ```
 sudo docker pull elasticsearch
 ```
 
-### 3. 下载kibana
+### 3. 下载 kibana
 
 ```
 sudo docker pull kibana
