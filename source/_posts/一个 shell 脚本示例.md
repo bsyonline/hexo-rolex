@@ -1,14 +1,14 @@
 ---
 title: 一个shell脚本示例
-toc: true
+toc: false
 date: 2016-07-16 16:00:19
-tags: linux
-categories: technology
+tags: Linux
+categories: Linux
 ---
 
 一个通过shell执行java程序的示例。
 
-```
+```shell
 #!/usr/bin/env bash
 
 #``倒引号中是需要执行命令

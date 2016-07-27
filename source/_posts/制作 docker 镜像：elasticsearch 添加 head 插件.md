@@ -1,9 +1,9 @@
 ---
 title: 制作docker镜像：elasticsearch添加head插件
-date: 2016-07-15 22:25:09
-tags: docker
 toc: true
-categories: technology
+date: 2016-07-15 22:25:09
+tags: Docker
+categories: Docker
 ---
 
 <!--more-->

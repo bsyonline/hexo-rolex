@@ -2,8 +2,8 @@
 title: 制作docker镜像：ubuntu14.04 + ssh镜像
 toc: true
 date: 2016-07-15 22:25:09
-tags: docker
-categories: technology
+tags: Docker
+categories: Docker
 ---
 
 <!--more-->
