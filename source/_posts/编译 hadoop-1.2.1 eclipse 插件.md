@@ -6,8 +6,11 @@ tags: Hadoop
 categories: 大数据
 ---
 
-### 1. 安装ant
-安装过程略，可参考 [Ant 环境安装](../../../../2016/07/19/Ant 环境安装/)。
+### 1. 安装
+需要安装 ant 环境，Ubuntu 默认已经安装了 ant ，如果没有，执行下面命令安装。
+```
+sudo apt-get install ant
+```
 ### 1.1 下载和解压
 ```
 wget https://archive.apache.org/dist/hadoop/common/hadoop-1.2.1/hadoop-1.2.1.tar.gz
