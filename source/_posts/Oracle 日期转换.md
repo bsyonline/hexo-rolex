@@ -1,12 +1,12 @@
 ---
-title: Oracle日期转换
-toc: true
+title: Oracle 日期转换
+toc: false
 date: 2016-07-16 15:53:51
 tags: oracle
 categories: 数据库
 ---
 
-Oracle日期转换示例。
+Oracle 日期转换示例。
 
 ### 1. 英语日期格式转换
 

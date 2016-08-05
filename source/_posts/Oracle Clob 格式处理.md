@@ -1,12 +1,12 @@
 ---
 title: Oracle Clob 格式处理
-toc: true
+toc: false
 date: 2016-07-16 15:53:49
 tags: Oracle
 categories: 数据库
 ---
 
-
+<!--more-->
 ```JAVA
 try {
     Clob clob = resultSet.getClob("FCT_PARTY");
