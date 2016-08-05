@@ -6,7 +6,7 @@ tags: chinadaas
 categories: chinadaas
 ---
 
-
+<!--more-->
 ```
 ChinadaasClient client = new ChinadaasClient(url, clientId, appId, token);
 PersonCheckRequest request1 = new PersonCheckRequest(name, identity, type);
