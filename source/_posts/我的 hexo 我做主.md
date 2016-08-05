@@ -1,17 +1,17 @@
 ---
-title: 我的hexo我做主
+title: 我的 hexo 我做主
 toc: true
 date: 2016-07-19 14:27:28
 tags: hexo
 categories: hexo
 ---
 
-Maupassant主题有一些细节对于强迫症晚期患者来说，不改实在是浑身难受，遂记录一下修改项和修改方案。
+Maupassant 主题有一些细节对于强迫症晚期患者来说，不改实在是浑身难受，遂记录一下修改项和修改方案。
 
-### 1. 修改toc的位置
-toc在正文的右上，占了正文的空间，在toc较长的情况下，正文不能很好的显示，所以将toc改为在文章开头显示。
+### 1. 修改 toc 的位置
+toc 在正文的右上，占了正文的空间，在 toc 较长的情况下，正文不能很好的显示，所以将 toc 改为在文章开头显示。
 
-```
+```css
 .toc-article {
   border: 1px solid #bbb;
   border-radius: 7px;
@@ -35,7 +35,7 @@ toc在正文的右上，占了正文的空间，在toc较长的情况下，正�
 }
 ```
 主要是去掉浮动和边框，在调整一下周围位置。
-```
+```css
 .toc-article {
   padding: 40px 0 0 0;
 }
@@ -52,8 +52,8 @@ toc在正文的右上，占了正文的空间，在toc较长的情况下，正�
 
 }
 ```
-### 2. 去掉toc中的序号
-```
+### 2. 去掉 toc 中的序号
+```css
 #toc {
   line-height: 1em;
   .toc {
@@ -75,8 +75,8 @@ toc在正文的右上，占了正文的空间，在toc较长的情况下，正�
 }
 ```
 ### 3. 修改代码区样式
-在将语言改成zh_CN后，代码区行高需要调整,去掉`.codeblock`的line-height属性,修改`.codeblock.line`的height属性。
-```
+在将语言改成 zh_CN 后，代码区行高需要调整,去掉 `.codeblock` 的 line-height 属性,修改 `.codeblock.line` 的 height 属性。
+```css
 figure.highlight,
 .codeblock {
     background:     #f7f8f8;
@@ -94,9 +94,9 @@ figure.highlight,
 }
 ```
 
-### 4. 去掉文章结尾tags
-tags改成在文章开始位置显示，结尾的tags就没必要显示了，干脆隐藏掉。
-```
+### 4. 去掉文章结尾 tags
+tags 改成在文章开始位置显示，结尾的 tags 就没必要显示了，干脆隐藏掉。
+```css
 .post {
   ...
   .tags{
@@ -115,7 +115,7 @@ tags改成在文章开始位置显示，结尾的tags就没必要显示了，干
 }
 ```
 调整分享按钮的位置
-```
+```css
 .article-share-link {
   margin-top: 1em;
 }
@@ -123,8 +123,24 @@ tags改成在文章开始位置显示，结尾的tags就没必要显示了，干
 
 ### 5. 调整文章列表显示
 
-```
+```css
 .post-content {
     padding-top: 10px;
+}
+```
+
+### 6. 修改 table 样式
+给 table 加上边框，将原有框线调细
+```css
+table {
+    th {
+        font-weight: bold;
+        padding: 5px 10px;
+        border: 1px solid #909ba2;
+    }
+    td {
+        padding: 5px 10px;
+        border: 1px solid #909ba2;
+    }
 }
 ```

@@ -1674,15 +1674,16 @@ table {
     width: 100%;
     background: transparent;
     border-collapse: collapse;
-    border-spacing: 0;
+    border-spacing: 1px;
     text-align: left;
     th {
         font-weight: bold;
         padding: 5px 10px;
-        border-bottom: 2px solid #909ba2;
+        border: 1px solid #909ba2;
     }
     td {
         padding: 5px 10px;
+        border: 1px solid #909ba2;
     }
     tr {
         &:nth-child(2n) {
