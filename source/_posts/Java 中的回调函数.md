@@ -19,7 +19,8 @@ public interface QueryCallback<T> {
 ```java
 public class Query {
 
-    public List<String> queryForList(String name, Callback callback){
+    public List<String> queryForList(String sql, Callback callback){
+        Session session = new Session();
         return callback.query(session);
     }
 
@@ -27,12 +28,12 @@ public class Query {
 ```
 调用的时候就可以使用回调了。
 ```java
-List<String> list = new Query().queryForList("tom", new QueryCallback() {
-            @Override
-            public List query(Session session) {
-                List<String> list = new ArrayList<String>();
-                ...
-                return list;
-            }
-        });
+String sql = "select * from user";
+List<String> list = new QueryDB().queryForList(sql, new Callback() {
+    @Override
+    public List query(Session session) {
+        List<String> list = session.query(sql);
+        return list;
+    }
+});
 ```
