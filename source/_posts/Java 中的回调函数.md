@@ -1,0 +1,38 @@
+---
+title: Java 中的回调函数
+toc: false
+date: 2016-08-08 17:23:33
+tags: Java
+categories: 编程
+---
+
+在 Spring 和 Hibernate 中有很多回调函数的用法，感觉使用起来非常方便，那么回调函数是如何实现的呢？
+首先需要定义一个回调接口，比如：
+```java
+public interface QueryCallback<T> {
+
+    <T> List<T> query(Session session);
+
+}
+```
+然后在定义的方法是调用接口方法。
+```java
+public class Query {
+
+    public List<String> queryForList(String name, Callback callback){
+        return callback.query(session);
+    }
+
+}
+```
+调用的时候就可以使用回调了。
+```java
+List<String> list = new Query().queryForList("tom", new QueryCallback() {
+            @Override
+            public List query(Session session) {
+                List<String> list = new ArrayList<String>();
+                ...
+                return list;
+            }
+        });
+```
