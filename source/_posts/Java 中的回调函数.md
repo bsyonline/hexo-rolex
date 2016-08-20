@@ -7,6 +7,7 @@ categories: 编程
 ---
 
 在 Spring 和 Hibernate 中有很多回调函数的用法，感觉使用起来非常方便，那么回调函数是如何实现的呢？
+
 首先需要定义一个回调接口，比如：
 ```java
 public interface QueryCallback<T> {
