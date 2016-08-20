@@ -58,6 +58,14 @@ BeanUtils.setProperty(B, field, BeanUtils.getProperty(user, field));
 
 ReflectASM 是通过字节码方式实现反射机制的反射库，写法比较简单，而且比 Java 自己的反射包和 commons.BeanUtils 等要快很多。
 
+```
+<dependency>
+    <groupId>com.esotericsoftware.reflectasm</groupId>
+    <artifactId>reflectasm</artifactId>
+    <version>1.09</version>
+</dependency>
+```
+
 ```java
 MethodAccess access = MethodAccess.get(User.class);
 access.invoke(B, "setName", access.invoke(A, "getName"));
