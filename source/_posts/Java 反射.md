@@ -75,7 +75,7 @@ if (access == null) {
 反射是一项非常有用的特性，能够在编程时解决很多特殊的问题，而性能会越来越快，所以应该合理大胆的使用反射。
 
 补充：关于使用 ReflectASM 的问题
-使用 ReflectASM 穿件类的实例
+使用 ReflectASM 创建类的实例
 ```java
 ConstructorAccess access = ConstructorAccess.get(User.class);
 access.newInstance();
