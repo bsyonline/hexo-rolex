@@ -181,7 +181,7 @@ div {
         margin: 0;
         color: #555;
         text-align: left;
-        font: bold 25px/1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
+        font: bold 25px/1.1 "ff-tisa-web-pro", Georgia, sans-serif, "Times New Roman",  Times;
         a {
             color: #555;
         }
@@ -1004,6 +1004,7 @@ figure.highlight,
     color:          #333;
     padding-top:    15px;
     overflow:       hidden;
+    border: 1px solid #e5e5e5;
 
     table {
         display:    block;

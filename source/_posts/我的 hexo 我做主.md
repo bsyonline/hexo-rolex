@@ -85,6 +85,7 @@ figure.highlight,
     color:          #333;
     padding-top:    15px;
     overflow:       hidden;
+    border: 1px solid #e5e5e5; /* 代码块加边框 */
 
     // All lines in gutter and code container
     .line {
