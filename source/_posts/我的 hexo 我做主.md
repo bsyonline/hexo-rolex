@@ -145,3 +145,21 @@ table {
     }
 }
 ```
+
+### 7. 修改显示宽度
+修改 `.body_container` 的 `max-width`
+```css
+.body_container {
+    max-width: 85%;
+}
+```
+调整 content 和 sidebar 宽度
+```css
+.pure-u-md-3-4, .pure-u-md-18-24 {
+    width: 80% !important;
+}
+.pure-u-md-1-4, .pure-u-md-6-24 {
+    width: 20% !important;
+}
+```
+调整后 footer 不居中，修改 base.jade 第59行 `.pure-u-1.pure-u-md-3-4` 为 `.pure-u-1.pure-u-md-4-4` 。

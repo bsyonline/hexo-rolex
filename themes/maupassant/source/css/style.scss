@@ -16,7 +16,7 @@ body {
 }
 .body_container {
     padding: 0 60px;
-    max-width: 1150px;
+    max-width: 85%;
     margin: 0 auto;
 }
 .content_container {
@@ -1820,4 +1820,10 @@ em.search-keyword {
   font-weight: bold;
   font-style: normal;
   color: #01579f;
+}
+.pure-u-md-3-4, .pure-u-md-18-24 {
+    width: 80% !important;
+}
+.pure-u-md-1-4, .pure-u-md-6-24 {
+    width: 20% !important;
 }
