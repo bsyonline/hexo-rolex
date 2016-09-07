@@ -77,9 +77,39 @@ Stream 语法由源，中间操作和最终操作组成。
 4. flatMap:
 和 map 类似，不同的是其每个元素转换得到的是 Stream 对象，会把子 Stream 中的元素压缩到父集合中。
 ![](http://7xqgix.com1.z0.glb.clouddn.com/flatMap.jpg)
+光从文字描述，感觉 flatMap 还是很难理解，通过程序帮助理解。
+```java
+Stream<List<Integer>> nums = Stream.of(
+        Arrays.asList(1),
+        Arrays.asList(2, 3),
+        Arrays.asList(4, 5, 6)
+);
+
+nums.flatMap(e -> e.stream()).collect(Collectors.toList()).forEach(e -> System.out.print(e + ","));
+```
+  输出结果为
+```java
+1,2,3,4,5,6,
+```
+  可以看出 flatMap 的作用是将源 Stream 中的 List 结构去掉，用 List 中的元素构成新的 List 。
 5. peek:
 生成一个包含原 Stream 的所有元素的新 Stream ，同时会提供一个消费函数（ Consumer 实例）。新 Stream 每个元素被消费的时候都会执行给定的消费函数。
 ![](http://7xqgix.com1.z0.glb.clouddn.com/peek.jpg)
+
+    文字描述还是没有程序直观
+```java
+Stream<List<Integer>> nums = Stream.of(
+        Arrays.asList(1),
+        Arrays.asList(2, 3),
+        Arrays.asList(4, 5, 6)
+);
+nums.peek(e -> System.out.println(e.size())) // 查看每个元素(list)的 size
+        .map(e -> e.get(0))
+        .collect(Collectors.toList())
+        .forEach(System.out::print);
+);
+```
+    peek 字面意思是窥视，通常也多用在 debug 中查看 Stream 的元素内容。
 6. limit:
 对一个 Stream 进行截断操作，获取其前 N 个元素，如果原 Stream 中包含的元素个数小于 N ，那就获取其所有的元素。
 ![](http://7xqgix.com1.z0.glb.clouddn.com/limit.jpg)
