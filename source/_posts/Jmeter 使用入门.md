@@ -32,8 +32,8 @@ Jmeter 提供了一些内置函数，点击 函数助手对话框 可查看内�
 ![](http://7xqgix.com1.z0.glb.clouddn.com/%E4%BC%81%E4%B8%9A%E5%90%8D%E5%8D%95.png)
 2. 在 Http 参数列表中的 value 位置使用 ${\__CSVRead(${entNameFile},0)} 。第一个参数是需要读取的 CSV 文件，第二个参数是每组数据的位置，CSV 文件中的测试数据默认使用 ‘,’ 分割，0 表示第一列数据。
 
-### 内存溢出问题
-在执行测试过程中，执行一段时间后出现内存溢出。解决方法参考如下：
+### OutOfMemoryError 
+在执行测试过程中，执行一段时间后出现 Java.lang.OutOfMemoryError: Java heap space 。解决方法参考如下：
 1. 修改启动参数。
 在 bin/jmeter 最后加入启动参数。
 ```
