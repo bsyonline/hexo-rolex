@@ -54,7 +54,7 @@ Stream 语法由源，中间操作和最终操作组成。
 * 对 Stream 进行聚合（Reduce）操作
   蓝色框中语句把 Stream 的里面包含的内容按照某种算法来汇聚成一个值。
 
-#### 创建
+**创建**
 获得 stream 的方法有如下几种：
 * 通过 Collection 的 parallelStream() 和 stream() 方法；
 * 通过 Arrays.stream(Object[]) 方法；
@@ -64,7 +64,7 @@ Stream 语法由源，中间操作和最终操作组成。
 * Random.ints() 可获得 IntStream ；
 * 其他一下生成 stream 的方法，如：BitSet.stream(), Pattern.splitAsStream(java.lang.CharSequence), and JarFile.stream() 。
 
-#### 转换
+**转换**
 1. distinct:
 对于 Stream 中包含的元素进行去重操作（去重逻辑依赖元素的 equals 方法），新生成的 Stream 中没有重复的元素。
 ![](http://7xqgix.com1.z0.glb.clouddn.com/distinct.jpg)
@@ -117,4 +117,53 @@ nums.peek(e -> System.out.println(e.size())) // 查看每个元素(list)的 size
 返回一个丢弃原 Stream 的前 N 个元素后剩下元素组成的新 Stream ，如果原 Stream 中包含的元素个数小于 N ，那么返回空 Stream。
 ![](http://7xqgix.com1.z0.glb.clouddn.com/skip.jpg)
 
-#### 聚合
+**聚合**
+聚合也叫 fold ，是通过重复的组合操作将一个元素序列合并成单独的结果，比如求 sum 或找到一个数字集合的最大值。Stream 类有多种形式的通用聚合操作，如 reduce() 和 collect() ，还有很多特殊的聚合操作，如 sum() 和 count() ，这些只有 IntStream 、DoubleStream 和 LongSteam 类才有。
+在 jdk 1.8 以前，要计算 sum 通常使用 for 循环：
+```java
+int sum = 0;
+for (int x : numbers) {
+   sum += x;
+}
+```
+使用 Stream 可以这样写：
+```java
+int sum = numbers.stream().reduce(0, (x,y) -> x + y);
+```
+![](http://7xqgix.com1.z0.glb.clouddn.com/reduce.png)
+```java
+int sum = numbers.stream().reduce(0, Integer::sum);
+```
+可变聚合
+可变聚合操作是将输入元素聚合到一个可变的结果容器中，如 Collection 或 StringBuilder 。
+如果想将 Stream 中的字符串连接成一个长字符串，通常的做法是：
+```java
+String concatenated = strings.reduce("", String::concat)；
+```
+collect() 的一般形式是：
+```java
+<R> R collect(Supplier<R> supplier,
+               BiConsumer<R, ? super T> accumulator,
+               BiConsumer<R, R> combiner);
+```
+该操作需要 3 个函数：
+1. Supplier 创建一个新的结果容器的实例；
+2. accumulator 将输入参数组织到结果容器中；
+3. combiner 将结果容器中的内容合并生成另一个结果容器。
+将集合中的字符串全转成大写：
+```java
+List<String> list = Lists.newArrayList("a", "b", "c");
+List<String> list1 = list.stream().collect(() -> new ArrayList<>(), (c, e) -> c.add(e.toUpperCase()), (c1, c2) -> c1.addAll(c2));
+```
+使用标准 Collector 重写：
+```java
+List<String> list2 = list.stream().map(String::toUpperCase).collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+```
+还有更简化的写法，利用 collect() 的重载方法：
+```java
+<R, A> R collect(Collector<? super T, A, R> collector);
+```
+
+```java
+List<String> list3 = list.stream().map(String::toUpperCase).collect(Collectors.toList());
+```
