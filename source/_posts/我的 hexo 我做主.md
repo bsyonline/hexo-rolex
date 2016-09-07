@@ -163,3 +163,14 @@ table {
 }
 ```
 调整后 footer 不居中，修改 base.jade 第59行 `.pure-u-1.pure-u-md-3-4` 为 `.pure-u-1.pure-u-md-4-4` 。
+调整 code 区域的宽度
+```
+figure.highlight,
+.codeblock {
+    .code {
+        pre {
+            // max-width:  700px;
+        }
+    }
+}
+```
