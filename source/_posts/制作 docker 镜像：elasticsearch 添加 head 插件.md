@@ -1,5 +1,5 @@
 ---
-title: 制作docker镜像：elasticsearch添加head插件
+title: 制作 docker 镜像：elasticsearch 添加 head 插件
 toc: true
 date: 2016-07-15 22:25:09
 tags: Docker

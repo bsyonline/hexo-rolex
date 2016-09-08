@@ -1,9 +1,9 @@
 ---
-title: 制作docker镜像：创建tomcat镜像
+title: 制作 docker 镜像：创建 tomcat 镜像
 toc: true
 date: 2016-07-15 22:25:09
 tags: Docker
-categories: Docker
+categories: 编程
 ---
 
 <!--more-->

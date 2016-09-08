@@ -2,7 +2,7 @@
 title: Elasticsearch-2.2.0 安装
 date: 2016-07-14 19:20:12
 tags: Elasticsearch
-categories: Elasticsearch
+categories: 编程
 ---
 
 
@@ -11,9 +11,9 @@ categories: Elasticsearch
 [https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.2.0/elasticsearch-2.2.0.tar.gz](https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.2.0/elasticsearch-2.2.0.tar.gz "elasticsearch-2.2.0")
 
 ### 2. 安装
-
->tar -zxf elasticsearch-2.2.0.tar.gz
-
+```
+tar -zxf elasticsearch-2.2.0.tar.gz
+```
 
 ### 3. 配置
 >vi ./config/elasticsearch.yml

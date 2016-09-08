@@ -2,7 +2,7 @@
 title: Elasticsearch-1.4.1 集群环境搭建
 date: 2016-07-14 19:20:12
 tags: Elasticsearch
-categories: Elasticsearch
+categories: 编程
 ---
 
 CentOS 6.4，机器 node3（10.20.20.203）,node4（10.20.20.204）
