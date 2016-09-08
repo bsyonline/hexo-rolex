@@ -1,12 +1,15 @@
 ---
 title: HashMap 的工作原理
-toc: false
+toc: true
 date: 2016-08-09 11:37:57
 tags: Java
 categories: 编程
 ---
 
-HashMap 是最常用的集合类之一，在面试中也出境颇高。经常会问 **HashMap 的特点** 及 **HashMap 和 Hashtable 的区别** 等等。那么就先做一下简单总结。
+HashMap 是最常用的集合类之一，在面试中也出镜率颇高。
+
+### HashMap 和 Hashtable
+经常会问 **HashMap 的特点** 及 **HashMap 和 Hashtable 的区别** 等等。那么就先做一下简单总结。
 
 |HashMap|Hashtable
 -|-|-
@@ -89,3 +92,43 @@ if (hiTail != null) {
 ![](http://7xqgix.com1.z0.glb.clouddn.com/hashmap_04.png)
 
 最后 rehashing 有没有问题呢？ 在多线程环境下，rehashing 会出现条件竞争，导致程序死循环。这也是为什么要在多线程环境中对 HashMap 进行线程安全处理的原因了。
+### concurrentHashMap 和 Hashtable 的区别
+HashMap 是线程不安全的，所以为了保证线程安全，我们有多种替代方案： Hashtable 、 Collections.sychroniziedMap() 和 concurrentHashMap 等。我们可以简单的将 Hashtable 理解为 HashMap 的线程安全版本，但是 Hashtable （包括 Collections.sychroniziedMap() ）的性能却不尽如人意，实际使用更多的是 concurrentHashMap 。
+Hashtable 和 concurrentHashMap 的性能差异的关键是写锁的数量。Hashtable 简单粗暴的使用了整个 Map 范围的锁，插入、删除及检索，甚至遍历等操作都要保持锁，所以极大的限制了并发。
+concurrentHashMap 则是将锁分散到每个 bucket 。bucket 的锁的数量是 32 ，也就意味着可以有 32 个线程同时操作 Map ，其性能自然比 Hashtable 要好很多。
+### 如何优化 HashMap 的性能
+1. **初始化容量**
+通常情况下 HashMap 的性能还是比较稳定的，算是在 ArrayList 和 LinkedList 之间取了平衡。
+
+|获取 |	查找 |	添加/删除 |	空间 	
+-|-|-
+ArrayList |	O(1) |	O(1) |	O(N) |	O(N)
+LinkedList |	O(N) |	O(N) |	O(1) |	O(N)
+HashMap |	O(N/Bucket_size) |	O(N/Bucket_size) |	O(N/Bucket_size) |	O(N)
+
+N 为元素的个数，Bucket_size 是桶的数量，在碰撞很少的情况下，复杂度趋近于 O(1) 。如果想进一步提高 HashMap 的性能，则需要在设计时有更多考虑。HashMap 的初始容量为 16 ，容量超过 75% 就会 resizing 。虽然 HashMap 的 resizing 性能再不断提升，但是如果能预估 HashMap 的大小，就能够避免不必要的 resizing 。
+如果有 1000 个元素， 下面的写法必定会触发 resizing 。
+```java
+Map map = new HashMap();
+```
+或
+```java
+Map map = new HashMap(1000);
+```
+不考虑空间因素，2 倍 size 是最简单的方法。
+```java
+Map map = new HashMap(1000 * 2);
+```
+但这样并不是太好，因为 HashMap 本身就不省空间。所以靠谱的做法还是自己算一个 init size 。
+```java
+float size = 1000 / 0.75f;
+Map map = new HashMap(size);
+```
+或
+```java
+Map map = Maps.newHashMapWithExpectedSize(1000);
+```
+2. **Key 的设计建议**
+我们知道 Map 获取元素是通过 Key 来比较的，Integer 的数值型的 Key 可以使用 == 来比较，而 String 需要用 equals ，一个一个字符比较还是比较慢的，好在 String 是 final 的，hashcode 可以缓存，但还是建议在只能使用 equals 的情况下，将 Key 设计的短一些。
+3. **使用替代数据结构**
+在极端情况下，如果 HashMap 的可以使用支持 int 、 long 等原生类型作为 Key 的数据结构来代替。
