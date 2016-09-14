@@ -16,7 +16,7 @@ body {
 }
 .body_container {
     padding: 0 60px;
-    max-width: 85%;
+    max-width: 70%;
     margin: 0 auto;
 }
 .content_container {
@@ -58,7 +58,7 @@ div {
             overflow: hidden;
         }
         #logo {
-            font: bold 38px/1.12 "Times New Roman", Georgia, Times, sans-serif;
+            font: bold 38px/1.12 sans-serif;
             color: #555;
             span, &:hover {
                 color: #777;
@@ -105,7 +105,7 @@ div {
             color: #6E7173;
             line-height: 2.7;
             margin-top: 0;
-            font-size: 16px;
+            font-size: 14px;
             border-bottom: 1px solid #ddd;
             display: block;
             font-weight: normal;
@@ -124,6 +124,7 @@ div {
             a {
                 line-height: 1.5;
                 padding: 5px;
+                  font-size: 12px !important;
               }
         }
         ul {
@@ -132,6 +133,7 @@ div {
             li {
                 margin: 5px 0;
                 line-height: 1.5;
+                font-size: 13px;
             }
         }
         .category-list-count {
@@ -176,12 +178,11 @@ div {
 }
 
 .post {
-    padding: 25px 0 15px;
+    padding: 25px 0 0;
     .post-title {
-        margin: 0;
         color: #555;
         text-align: left;
-        font: bold 25px/1.1 "ff-tisa-web-pro", Georgia, sans-serif, "Times New Roman",  Times;
+        font: solid 20px/1.1 sans-serif, "Times New Roman",  Times;
         a {
             color: #555;
         }
@@ -190,13 +191,11 @@ div {
         padding: 0;
         margin: 15px 0 0;
         color: #6E7173;
-        float: left;
-        display: inline;
+        margin: 0 0 0 10px;
         text-indent: .15em;
+        font-size: 12px;
         &:before {
-              font-family: "FontAwesome";
-              content: "\f073";
-              padding-right: 0.3em;
+
         }
         .category {
             &:before {
@@ -406,7 +405,7 @@ div {
     padding-bottom: .8em;
     h2 {
         margin: 0;
-        font: bold 25px / 1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
+        font: bold 25px / 1.1 sans-serif;
     }
     .date {
         padding-right: .7em;
@@ -999,7 +998,7 @@ pre {
 /* syntax highlight*/
 figure.highlight,
 .codeblock {
-    background:     #f7f8f8;
+    background:     #ffffff;
     margin:         10px 0;
     color:          #333;
     padding-top:    15px;
@@ -1049,7 +1048,7 @@ figure.highlight,
     }
     // Gutter which contains line numbers
     .gutter {
-        background:   #f7f8f8;
+        background:   #ffffff;
         border-right: 1px solid #e6e6e6;
         padding:      0.3em 15px;
 
@@ -1820,10 +1819,4 @@ em.search-keyword {
   font-weight: bold;
   font-style: normal;
   color: #01579f;
-}
-.pure-u-md-3-4, .pure-u-md-18-24 {
-    width: 80% !important;
-}
-.pure-u-md-1-4, .pure-u-md-6-24 {
-    width: 20% !important;
 }

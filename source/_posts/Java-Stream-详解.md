@@ -150,6 +150,7 @@ collect() 的一般形式是：
 1. Supplier 创建一个新的结果容器的实例；
 2. accumulator 将输入参数组织到结果容器中；
 3. combiner 将结果容器中的内容合并生成另一个结果容器。
+
 将集合中的字符串全转成大写：
 ```java
 List<String> list = Lists.newArrayList("a", "b", "c");

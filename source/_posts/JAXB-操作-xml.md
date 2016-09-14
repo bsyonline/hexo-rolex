@@ -3,13 +3,13 @@ title: JAXB 操作 xml
 toc: true
 date: 2016-07-16 15:49:59
 tags:
-	-Jaxb
-	-Java
+	Jaxb
+	Java
 categories: 编程
 ---
 
 
-### 使用 \@XmlRootElement 和 \@XmlElement 标示根节点对象和属性节点对象
+### 使用 @XmlRootElement 和 @XmlElement 标示根节点对象和属性节点对象
 ```java
 @XmlRootElement(name = "DATA")
 public class Data {

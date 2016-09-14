@@ -146,31 +146,14 @@ table {
 }
 ```
 
-### 7. 修改显示宽度
-修改 `.body_container` 的 `max-width`
-```css
-.body_container {
-    max-width: 85%;
-}
+### 7. 列表去掉文章内容显示
+去掉 index.jade 中引用 content 。
 ```
-调整 content 和 sidebar 宽度
-```css
-.pure-u-md-3-4, .pure-u-md-18-24 {
-    width: 80% !important;
-}
-.pure-u-md-1-4, .pure-u-md-6-24 {
-    width: 20% !important;
-}
-```
-调整后 footer 不居中，修改 base.jade 第59行 `.pure-u-1.pure-u-md-3-4` 为 `.pure-u-1.pure-u-md-4-4` 。
-调整 code 区域的宽度
-```
-figure.highlight,
-.codeblock {
-    .code {
-        pre {
-            // max-width:  700px;
-        }
-    }
-}
+for post in page.posts.toArray()
+  .post
+    .post-title
+      include _partial/helpers
+      a(href=url_for(post.path))
+        +title(post)
+        span.post-meta=post.date.format(config.date_format)
 ```
