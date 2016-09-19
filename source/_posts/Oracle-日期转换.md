@@ -21,3 +21,8 @@ FROM dual
 d1|d2|d3
 -|-|-
 2016-01-29 00:00:00 | 01-JUL-16|01-7月 -16
+
+### 2. 将字符串转成date
+```sql
+SELECT TO_DATE(SUBSTR('2016年08月12日', 0, 11), 'yyyy"年"mm"月"dd"日"') from dual 
+```
