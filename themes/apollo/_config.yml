@@ -1,8 +1,8 @@
 menu:
     Home: /
-    Reading time: /read/
-    Guitar park: /guiter/
-    Archives: /archives/
+    编程: /code/
+    人丑更要多读书: /read/
+    吉他英雄: /guiter/
     About: /about/
 
 favicon: /favicon.png
