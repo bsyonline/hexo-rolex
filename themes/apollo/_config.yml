@@ -1,0 +1,21 @@
+menu:
+    Home: /
+    Reading time: /read/
+    Guitar park: /guiter/
+    Archives: /archives/
+    About: /about/
+
+favicon: /favicon.png
+logo: /favicon.png
+
+# Comment
+# e.g disqus: seansun
+disqus:
+duoshuo:
+
+# Analytics
+# google-analytics:
+ga: UA-65933410-1
+
+# Copyright Infomation
+startyear: 2012
