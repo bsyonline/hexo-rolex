@@ -3,9 +3,19 @@ html(lang=config.language)
     head
         include head
     body
+        .search-form
+          div.search-icon
+            i.fa.fa-search
+          div.search-input
+            input(type="text", placeholder="Search...")
         header
             a.logo-link(href=url_for())
                 img(src=theme.logo)
+            div.hexo-title
+              div.title
+                = config.title
+              div.subtitle
+                = config.subtitle
             include nav
         .wrap
 

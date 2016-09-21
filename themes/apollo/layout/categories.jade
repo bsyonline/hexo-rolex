@@ -1,0 +1,18 @@
+extends partial/layout
+
+block site_title
+    != page.title + " · " + config.title
+
+block description
+    - var desc = page.desc || page.title + ' - ' + config.author;
+    meta(name="description", content=desc)
+
+block container
+    each categories in _.groupBy(site.categories.toArray(), function(p){return page.category})
+      ul.listing
+        for category in categories
+          div.category
+            a(href=url_for(category.path))= _.split(category.path,'\/')[1]
+    script(src="js/main.js", type="text/javascript")
+block copyright
+    include partial/copyright

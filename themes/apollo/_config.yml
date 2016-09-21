@@ -1,8 +1,10 @@
 menu:
     Home: /
-    编程: /code/
+    编程: /categories/编程/
     人丑更要多读书: /read/
-    吉他英雄: /guiter/
+    吉他英雄: /guitar/
+    分类: /categories/
+    标签: /tags/
     About: /about/
 
 favicon: /favicon.png
