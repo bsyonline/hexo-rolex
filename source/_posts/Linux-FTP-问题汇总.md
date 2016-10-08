@@ -1,14 +1,14 @@
 ---
 title: Linux ftp 问题汇总
 toc: true
-date: 2016-07-16 15:49:44
-tags:
-categories:
+date: 2014-07-16 15:49:44
+tags: Linux
+categories: Linux
 ---
 
 ####虚拟机ftp配置
 
-今天在vmware上装contos，系统装完，可以ping通，但是ftp不通，错误消息如下：
+今天在 vmware 上装 contos，系统装完，可以ping通，但是ftp不通，错误消息如下：
 >状态:      尝试连接“ECONNREFUSED - Connection refused by server”失败
 
 google说可能是端口没开或占用

@@ -1,7 +1,7 @@
 ---
 title: /etc/profile和/etc/profile.d的区别
 toc: true
-date: 2016-07-16 15:53:25
+date: 2016-03-30 15:53:25
 tags: Linux
 categories: 编程
 ---

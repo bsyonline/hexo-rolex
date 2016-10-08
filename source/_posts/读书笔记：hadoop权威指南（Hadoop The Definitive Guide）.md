@@ -1,8 +1,8 @@
 ---
 title: 读书笔记：hadoop权威指南（Hadoop The Definitive Guide）
 toc: true
-date: 2016-07-16 15:45:44
-tags: hadoop
+date: 2015-11-19 15:45:44
+tags: Hadoop
 categories: 大数据
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: 拷贝vmware文件方式创建虚拟机
+title: 拷贝 vmware 文件方式创建虚拟机
 toc: false
-date: 2016-07-16 15:53:17
+date: 2015-08-29 15:53:17
 tags: vmware
 categories: Linux
 ---

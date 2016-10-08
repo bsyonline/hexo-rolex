@@ -1,7 +1,7 @@
 ---
 title: CentOS 6.5 安装JDK
 toc: true
-date: 2016-07-16 15:53:32
+date: 2015-07-16 15:53:32
 tags: Linux
 categories: Linux
 ---

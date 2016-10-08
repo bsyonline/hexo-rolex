@@ -1,7 +1,7 @@
 ---
 title: idea 使用 maven 每次更新 pom 不重置 LanguageLevel 和 JavaCompiler 的办法
 toc: true
-date: 2016-07-16 15:49:54
+date: 2014-01-10 15:49:54
 tags: IDEA
 categories: 编程
 ---

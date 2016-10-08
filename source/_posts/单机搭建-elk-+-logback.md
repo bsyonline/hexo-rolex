@@ -1,7 +1,7 @@
 ---
 title: 单机搭建 elk + logback 环境
 toc: true
-date: 2016-07-16 15:53:17
+date: 2016-08-16 15:53:17
 tags: elk
 categories: 编程
 ---

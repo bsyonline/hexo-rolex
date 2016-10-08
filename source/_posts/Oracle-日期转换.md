@@ -1,7 +1,7 @@
 ---
 title: Oracle 日期转换
 toc: false
-date: 2016-07-16 15:53:51
+date: 2016-03-24 15:53:51
 tags: Oracle
 categories: 数据库
 ---
@@ -24,5 +24,5 @@ d1|d2|d3
 
 ### 2. 将字符串转成date
 ```sql
-SELECT TO_DATE(SUBSTR('2016年08月12日', 0, 11), 'yyyy"年"mm"月"dd"日"') from dual 
+SELECT TO_DATE(SUBSTR('2016年08月12日', 0, 11), 'yyyy"年"mm"月"dd"日"') from dual
 ```

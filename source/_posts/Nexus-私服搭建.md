@@ -1,7 +1,7 @@
 ---
 title: Nexus 私服搭建
 toc: true
-date: 2016-07-16 15:53:46
+date: 2016-02-22 15:53:46
 tags: Nexus
 categories: 编程
 ---

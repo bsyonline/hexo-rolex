@@ -1,7 +1,7 @@
 ---
 title: spring boot cache （redis）使用
 toc: true
-date: 2016-07-16 16:00:24
+date: 2016-05-26 16:00:24
 tags: spring-boot
 categories: technology
 ---

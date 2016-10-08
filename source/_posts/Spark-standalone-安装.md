@@ -1,12 +1,12 @@
 ---
 title: spark standalone 安装
 toc: true
-date: 2016-07-16 16:00:22
+date: 2016-05-04 16:00:22
 tags: Spark
 categories: 编程
 ---
 
-spark standalone即伪分布式部署,即在单击部署spark,部署方式比较简单.
+spark standalone 即伪分布式部署,即在单击部署 spark ,部署方式比较简单.
 
 ### 1. 下载spark安装包
 

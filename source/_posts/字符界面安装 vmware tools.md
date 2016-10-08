@@ -1,7 +1,7 @@
 ---
 title: 字符界面安装 vmware tools
 toc: true
-date: 2016-07-16 15:53:17
+date: 2015-08-04 15:53:17
 tags: Linux
 categories: Linux
 ---

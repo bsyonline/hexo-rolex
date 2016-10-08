@@ -1,7 +1,7 @@
 ---
 title: linux 安装图形界面
 toc: false
-date: 2016-07-16 15:53:23
+date: 2015-08-01 15:53:23
 tags: Linux
 categories: 编程
 ---

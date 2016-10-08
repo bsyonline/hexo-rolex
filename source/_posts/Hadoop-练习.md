@@ -1,8 +1,8 @@
 ---
 title: hadoop练习
 toc: true
-date: 2016-07-16 15:45:26
-tags: hadoop
+date: 2015-10-22 15:45:26
+tags: Hadoop
 categories: 编程
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: 添加sudo权限
 toc: false
-date: 2016-07-16 15:53:17
+date: 2015-08-09 15:53:17
 tags: Linux
 categories: Linux
 ---
