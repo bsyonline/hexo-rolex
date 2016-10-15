@@ -1,5 +1,5 @@
 ---
-title: 制作 docker 镜像：创建 tomcat 镜像
+title: Docker ： 创建 tomcat 镜像
 toc: true
 date: 2016-07-15 22:25:09
 tags: Docker
