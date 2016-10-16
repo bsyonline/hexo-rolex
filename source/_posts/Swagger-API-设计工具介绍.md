@@ -1,11 +1,11 @@
 ---
-title: Swagger ： API 设计工具介绍
+title: 'Swagger : API 设计工具介绍'
 toc: true
-date: 2016-10-14 16:46:40
-tags:
-categories:
+date: 2016-10-14 22:15:37
+tags: Swagger
+categories: 编程
 ---
-Swagger 是一款基于 Node.js 的 API 设计工具，官方网站为[swagger.io](swagger.io)。Swagger Editor 能直观的生成 API 接口的说明，方便接口开发。
+Swagger 是一款基于 Node.js 的 API 设计工具，官方网站为 [swagger.io](swagger.io) 。Swagger Editor 能直观的生成 API 接口的说明，方便接口开发。
 ### Swagger Editor 安装
 Editor 可以在线使用[http://editor.swagger.io/#/](http://editor.swagger.io/#/)，也可以在本地环境运行，安装也很简单。
 ```
