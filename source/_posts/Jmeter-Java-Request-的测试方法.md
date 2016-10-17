@@ -1,9 +1,9 @@
 ---
-title: 'Jmeter : java request 的测试方法'
+title: 'Jmeter : Java Request 的测试方法'
 toc: true
-date: 2016-10-16 21:59:46
-tags:
-categories:
+date: 2016-10-17 14:28:17
+tags: Jmeter
+categories: 编程
 ---
 Jmeter 是一款简单的性能测试工具，并且开源。下载解压后运行
 ```
@@ -67,3 +67,4 @@ public class JavaRequest extends AbstractJavaSamplerClient {
 
 }
 ```
+![](http://7xqgix.com1.z0.glb.clouddn.com/javaRequest.png)
