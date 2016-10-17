@@ -1,5 +1,5 @@
 ---
-title: Maven打包专题
+title: Maven 打包专题
 toc: true
 date: 2016-01-29 15:53:42
 tags: Maven
@@ -25,7 +25,6 @@ categories: 编程
                     </manifest>
                 </archive>
             </configuration>
-
         </plugin>
     </plugins>
 </build>
@@ -34,8 +33,25 @@ categories: 编程
 ```
 mvn assembly:assembly
 ```
-
-可生成可执行 jar 包。配置文件是打在 jar 包里边的，所以想灵活的使用外部配置文件，此方法并不合适。
+可生成可执行 jar 包。
+将打包和 maven 的 package 阶段绑定，加入
+```
+<executions>
+    <execution>
+        <id>make-assembly</id>
+        <phase>package</phase>
+        <goals>
+            <goal>attached</goal>
+        </goals>
+    </execution>
+</executions>
+```
+可以直接使用
+```
+mvn package
+```
+打包。
+配置文件是打在 jar 包里边的，所以想灵活的使用外部配置文件，此方法并不合适。
 
 ### jar 包
 
@@ -59,6 +75,34 @@ mvn assembly:assembly
         </dependencySet>
     </dependencySets>
 </assembly>
+```
+### 包含第三方 jar
+如果在项目中使用中央仓库没有的第三方 jar 或是自己开发的 jar ，可以使用系统路径的方式引入。
+```xml
+<dependency>
+    <groupId>com.rolex.jmeter.test</groupId>
+    <artifactId>jmeter-test</artifactId>
+    <version>1.0.0</version>
+    <scope>system</scope>
+    <systemPath>${project.basedir}/libs/certNoToMd5.jar</systemPath>
+</dependency>
+```
+这样可以引入仓库中没有的 jar 。
+但是，这样写在打包的时候并不会将外部 jar 打到 jar 中，在执行是会报找不到定义的类的异常。解决方案有两种:
+1. 将目录移到 resources 下。
+2. 在 pom.xml 中加入 resources 配置
+```
+<build>
+    <resources>
+        <resource>
+            <targetPath>libs/</targetPath>
+            <directory>libs/</directory>
+            <includes>
+                <include>**/certNoToMd5.jar</include>
+            </includes>
+        </resource>
+    </resources>
+</build>
 ```
 
 ### war 包
