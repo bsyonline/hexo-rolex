@@ -5,16 +5,21 @@ date: 2016-10-14 22:15:37
 tags: Swagger
 categories: 编程
 ---
-Swagger 是一款基于 Node.js 的 API 设计工具，官方网站为 [swagger.io](swagger.io) 。Swagger Editor 能直观的生成 API 接口的说明，方便接口开发。
-### Swagger Editor 安装
-Editor 可以在线使用[http://editor.swagger.io/#/](http://editor.swagger.io/#/)，也可以在本地环境运行，安装也很简单。
+Swagger 是一款基于 Node.js 的 API 设计工具，官方网站为 [swagger.io](http://swagger.io) 。Swagger Editor 能直观的生成 API 接口的说明，方便接口开发。
+### Swagger Editor
+Editor 可以在线使用 [http://editor.swagger.io/#/](http://editor.swagger.io/#/) ，也可以在本地环境运行，安装也很简单。
 ```
 git clone https://github.com/swagger-api/swagger-editor.git
 cd swagger-editor
 npm install
 npm start
 ```
-### 示例
+访问 `http://localhost:8080/` 可看到效果。
+![](http://7xqgix.com1.z0.glb.clouddn.com/swagger-editor.png)
+
+swagger 使用 yaml 语法规范，简单的可参考官方示例，语法详细见 [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) 。
+
+示例：
 
 ```ymal
 swagger: "2.0"
@@ -291,3 +296,24 @@ definitions:
       result:
         type: object
 ```
+### Swagger UI
+本地安装比较简单，按步骤执行命令应该没有问题，前提需要有 Node.js 环境。
+```
+git clone git@github.com:swagger-api/swagger-ui.git
+cd swagger-ui
+npm install
+npm run build
+npm run serve
+```
+访问 `http://localhost:8080` 可看到 demo 。
+![](http://7xqgix.com1.z0.glb.clouddn.com/swagger-ui-index.png)
+
+
+将自己写好的接口文件从 Editor 中导出，保存到 dist/ 下任意位置。
+![](http://7xqgix.com1.z0.glb.clouddn.com/swagger-editor-export.png)
+
+在浏览器中输入路径即可看到自己的接口列表。
+![](http://7xqgix.com1.z0.glb.clouddn.com/swagger-ui-customiz.png)
+
+在浏览器中可以直接进行调试，并可直观看到相关信息。
+![](http://7xqgix.com1.z0.glb.clouddn.com/swagger-ui-post.png)
