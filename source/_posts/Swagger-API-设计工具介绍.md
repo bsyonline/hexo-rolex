@@ -25,7 +25,7 @@ swagger 使用 yaml 语法规范，简单的可参考官方示例，语法详细
 swagger: "2.0"
 info:
   version: 1.0.0
-  title: A RESTful Adventure
+  title: data-engine-api 接口
 host: 127.0.0.1:8080
 schemes:
   - http
@@ -37,22 +37,22 @@ produces:
 paths:
   /entInfo:
     get:
-      summary: get all dataSet of ent.
-      operationId: list_characters
+      summary: 查询企业基本信息。
+      description: description
       parameters:
         - name: entId
           in: query
-          description: primary key of ent.
+          description: 唯一标识
           required: true
           type: string
         - name: mask
           in: query
-          description: dateSet name split by ','.
+          description: 数据集权限，以','分隔
           required: true
           type: string
         - name: entType
           in: query
-          description: type of ent.
+          description: 企业类型.
           required: false
           type: string
       responses:
@@ -79,28 +79,55 @@ paths:
           description: Unexpected errors
           schema:
             $ref: "#/definitions/Error"
-  /test:
-    # This is a HTTP operation
+  /changeDetails:
     get:
-      # Describe this verb here. Note: you can use markdown
+      summary: 变更详情
       description: |
         Gets `Person` objects.
         Optional query param of **size** determines
-      # Expected responses for this operation:
+      parameters:
+        - name: uid
+          type: string
+          required: true
+          in: query
+          description: 用户id
+        - name: pripid
+          type: string
+          required: true
+          in: query
+          description: 企业唯一标识
+        - name: startDate
+          in: query
+          required: true
+          type: string
+          description: 开始时间
+        - name: endDate
+          in: query
+          type: string
+          required: true
+          description: 结束时间
       responses:
-        # Response code
         200:
           description: Successful response
-          # A schema describing your response object.
-          # Use JSON Schema format
           schema:
-            title: result
-            type: string
+            $ref: "#/definitions/ChangeDetails"
 
 definitions:
+  ChangeDetails:
+    type: object
+    properties:
+      uid:
+        type: string
+        description: 用户id
+      pripid:
+        type: string
+        description: 企业唯一标识
+      changeDetails:
+        type: array
+        items:
+          $ref: "#/definitions/DataModel"
   Info:
     type: object
-    readOnly: true
     properties:
       basic:
         $ref: "#/definitions/Basic"
@@ -173,13 +200,118 @@ definitions:
     properties:
       name:
         type: string
+        description: 法定代表人姓名
       entName:
         type: string
+        description: 企业名称
+      identity:
+        type: string
+        description: 个人识别码
+      regNo:
+        type: string
+        description: 注册号
+      oriRegNo:
+        type: string
+        description: 原注册号
+      orgCodes:        
+        type: string
+        description: 组织机构代码
+      regCap:          
+        type: string
+        description: 注册资本(万元)
+      recCap:          
+        type: string
+        description: 实收资本(万元)
+      regCapCur:       
+        type: string
+        description: 注册资本币种
+      esDate:          
+        type: string
+        description: 开业日期
+      opFrom:          
+        type: string
+        description: 经营期限自
+      opTo:            
+        type: string
+        description: 经营期限至
+      entType:         
+        type: string
+        description: 企业(机构)类型
+      entStatus:       
+        type: string
+        description: 经营状态
+      changeDate:      
+        type: string
+        description: 变更日期
+      canDate:         
+        type: string
+        description: 注销日期
+      revDate:         
+        type: string
+        description: 吊销日期
+      dom:             
+        type: string
+        description: 住址
+      abuItem:         
+        type: string
+        description: 许可经营项目
+      cbuItem:         
+        type: string
+        description: 一般经营项目
+      opScope:         
+        type: string
+        description: 经营(业务)范围
+      opScoAndForm:    
+        type: string
+        description: 经营(业务)范围及方式
+      regOrgCode:      
+        type: string
+        description: 注册地址行政区编号
+      regOrgProvince:  
+        type: string
+        description: 所在省份
+      ancheYear:       
+        type: string
+        description: 最后年检年度
+      ancheDate:       
+        type: string
+        description: 最后年检日期
+      industryPhyCode:
+        type: string
+        description: 行业门类代码
+      industryCoCode:  
+        type: string
+        description: 国民经济行业代码
+      empNum:          
+        type: string
+        description: 员工人数
+      entNameEng:      
+        type: string
+        description: 企业英文名称
+      tel:
+        type: string
+        description: 电话
+      creditCode:
+        type: string
+        description: 信用代码
+      province:        
+        type: string
+        description: 省节点编码
+      oploc:           
+        type: string
+        description: 经营场所
+      domDistrict:     
+        type: string
+        description: 住所所在行政区划
+      pripid:
+        type: string
+        description: 唯一key
   PriPerson:
     type: object
     properties:
       name:
         type: string
+        description: 人员姓名
       entName:
         type: string
   ShareHolder:
@@ -287,6 +419,38 @@ definitions:
         type: string
       entName:
         type: string
+  DataModel:
+    type: object
+    properties:
+      pripid:
+        type: string
+      table:
+        type: string
+      sequenceId:
+        type: string
+      changeItems:
+        type: array
+        items:
+          $ref: "#/definitions/ChangeItem"
+  ChangeItem:
+    type: object
+    properties:
+      column:
+        type: string
+      newValue:
+        type: string
+      oldValue:
+        type: string
+      type:
+        type: string
+      date:
+        type: string
+      own:
+        type: string
+      key:
+        type: string
+      apprDate:
+        type: string
   Error:
     type: object
     properties:
@@ -306,6 +470,11 @@ npm run build
 npm run serve
 ```
 访问 `http://localhost:8080` 可看到 demo 。
+如果有 docker 环境，那使用 docker 部署运行更加简单一些。
+```
+sudo docker build -t swagger-ui .
+sudo docker run -d -p 5000:8080 --name swagger-ui wagger-ui
+```
 ![](http://7xqgix.com1.z0.glb.clouddn.com/swagger-ui-index.png)
 
 
