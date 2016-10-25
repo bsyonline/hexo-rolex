@@ -783,7 +783,7 @@ footer .copyright a:hover {
 }
 .search-form{
   margin: auto;
-  width: 400px;
+  width: 240px;
   height: 20px;
   z-index: 99999;
   position: fixed;left:0;

@@ -74,4 +74,57 @@ Channel 提供了从源读取数据的渠道，而数据的操作都是由 Buffe
 ![](http://7xqgix.com1.z0.glb.clouddn.com/buffer_compact.png)
 
 ### 大文件处理
-Java 中大文件处理通常会使用带缓冲的流，Java NIO 提供了
+>关于 NIO MappedByteBuffer 的例子，我在测试的时候并没有得到和网上资料相同的结果，还不知道原因
+
+Java 中大文件处理通常会使用带缓冲的流，Java NIO 提供了 MappedByteBuffer 来处理大文件。MappedByteBuffer 继承自 ByteBuffer ，它使用 direct buffer 方式来读写文件，这种方式也叫做内存映射，没有 JVM 和操作系统之间的复制操作，直接调用系统底层的缓存，所以效率比较高。
+我试了一下用 MappedByteBuffer 的方式复制文件，速度还没有使用 Java I/O 的 Buffered stream 快，不知道问题何在。
+```java
+public static void foo1() throws IOException {
+    long start = System.currentTimeMillis();
+    BufferedInputStream bis = new BufferedInputStream(new FileInputStream(new File("spark-1.6.1-bin-hadoop2.6.tgz")));
+    BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("spark1.tgz"));
+    int length;
+    byte[] buffer = new byte[1024];
+    while ((length = bis.read(buffer, 0, buffer.length)) != -1) {
+        bos.write(buffer, 0, length);
+    }
+    long end = System.currentTimeMillis();
+    System.out.println((end - start) + "ms");
+    bis.close();
+    bos.close();
+}
+
+public static void foo4() throws IOException {
+    long start = System.currentTimeMillis();
+    String srcFile = "spark-1.6.1-bin-hadoop2.6.tgz";
+    String destFile = "spark4.tgz";
+    Path path = Paths.get(srcFile);
+    FileOutputStream rafo = new FileOutputStream(destFile);
+    FileChannel fci = FileChannel.open(path,StandardOpenOption.READ,StandardOpenOption.WRITE);
+    FileChannel fco = rafo.getChannel();
+    MappedByteBuffer mbbi = fci.map(FileChannel.MapMode.READ_ONLY, 0, path.toFile().length());
+    fco.write(mbbi);
+    long end = System.currentTimeMillis();
+    System.out.println((end - start) + "ms");
+    fci.close();
+    fco.close();
+    rafo.close();
+}
+```
+只能先理解一下概念。
+在操作大文件的时候，如果文件大到无法放到内存，可以用 MappedByteBuffer 映射硬盘文件到内存(不是真放到内存)，处理可以简单一些。
+网上另一个用法：
+```java
+int length = 0x8FFFFFF;//一个byte占1B，所以共向文件中存128M的数据
+try (FileChannel channel = FileChannel.open(Paths.get("src/c.txt"),
+        StandardOpenOption.READ, StandardOpenOption.WRITE);) {
+    MappedByteBuffer mapBuffer = channel.map(FileChannel.MapMode.READ_WRITE, 0, length);
+    for (int i = 0; i < length; i++) {
+        mapBuffer.put((byte) 0);
+    }
+    for (int i = length / 2; i < length / 2 + 4; i++) {
+        //像数组一样访问
+        System.out.println(mapBuffer.get(i));
+    }
+}
+```

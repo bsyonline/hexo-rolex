@@ -169,7 +169,7 @@ ExecStart=/usr/bin/dockerd --storage-driver=overlay2  --graph="/home/docker"
 
 
 ### 关闭 firewalld
-firewalld 是 CentOS 7 引入的新服务，参考 [Firewalld 科普](../../../../2016/10/21/Firewalld-科普/)
+firewalld 是 CentOS 7 引入的新服务，参考 [Firewalld 试用](../../../../2016/10/21/Firewalld-试用/)
 ```
 systemctl stop firewalld.service
 systemctl disable firewalld.service
