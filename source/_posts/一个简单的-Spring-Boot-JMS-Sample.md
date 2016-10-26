@@ -1,5 +1,5 @@
 ---
-title: 一个简单的 Spring Boot + JMS 模型
+title: 一个简单的 Spring Boot + JMS Sample
 toc: true
 date: 2016-10-26 15:40:04
 tags: JMS
@@ -7,6 +7,7 @@ categories: 编程
 ---
 
 用 JMS 对一个 api 接口进行了改造。
+![](http://7xqgix.com1.z0.glb.clouddn.com/jms_2.png)
 
 **1. 加入 maven 依赖**
 pom.xml
