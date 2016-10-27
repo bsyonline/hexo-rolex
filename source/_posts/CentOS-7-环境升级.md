@@ -207,6 +207,19 @@ a0c173b4-341a-4f47-9eea-5e2ca9713665	localhost	Connected
 
 ```
 mkdir -p /opt/riskbell/
-gluster volume create riskbell_vol p75:/opt/riskbell/ force
+gluster volume create riskbell_vol replica 2 transport tcp p75:/u01/riskbell/ p76:/u01/riskbell/ force
 gluster volume info
+```
+**5. 启动**
+```
+gluster volume start riskbell_vol
+```
+**6. 安装 glusterfs 客户端**
+```
+yum -y installglusterfs glusterfs-fuse
+```
+**7. 挂载目录**
+```
+mkdir -p /opt/riskbell
+mount -t glusterfs -o rw p75:riskbell_vol /opt/riskbell/
 ```

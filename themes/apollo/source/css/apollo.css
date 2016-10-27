@@ -275,7 +275,8 @@ header {
 }
 
 header .logo-link {
-    float: left
+    float: left;
+    height: 60px;
 }
 
 header .nav {
@@ -671,11 +672,11 @@ section.container {
     .wrap {
         width: 700px;
         margin: 0 auto;
-        padding-top: 80px;
+        padding-top: 30px;
     }
 
     header {
-        padding: 20px 100px
+        padding: 3px 100px 0px 100px
     }
 }
 
@@ -691,7 +692,7 @@ section.container {
     header a.logo-link, header ul.nav.nav-list {
         float: none;
         display: block;
-        text-align: center
+        text-align: center;
     }
 
     header li.nav-list-item {
@@ -788,7 +789,7 @@ footer .copyright a:hover {
   z-index: 99999;
   position: fixed;left:0;
   right:0;
-  top:30px;
+  top:10px;
   padding: 10px;
 
 }
