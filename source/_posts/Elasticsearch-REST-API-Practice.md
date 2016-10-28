@@ -204,7 +204,7 @@ curl 'localhost:9200/twitter/_search' -d '{
 }'
 ```
 
-**指定返回的字段**
+#### 指定返回的字段
 ```
 curl 'localhost:9200/twitter/_search' -d '{
     "fields":["user","message"],
@@ -221,7 +221,7 @@ curl 'localhost:9200/twitter/_search' -d '{
 ```
 >如果不指定 fields ，elasticsearch 默认返回 \_source 字段。
 
-**指定查询的类型**
+#### 指定查询的类型
 elasticsearch 提供了一下几种查询类型：
 * query_and_fetch
   1.3 以后移除
@@ -230,19 +230,119 @@ elasticsearch 提供了一下几种查询类型：
 * dfs_query_and_fetch
   1.3 以后移除
 * dfs_query_then_fetch
-
+  比 query_then_fetch 多了一步计算分布式词频。
 * count
+  2.0 废弃
 * scan
+  2.0 废弃
 可在查询是指定类型
 ```
-curl 'localhost:9200/twitter/_search?pretty=true&search_type=query_and_fetch' -d '{
+curl 'localhost:9200/twitter/_search?pretty=true&search_type=query_then_fetch' -d '{
     "query":{
         "term" : {"user" : "kimchy"}
     }
 }'
 ```
+>默认是 query_then_fetch
 
-**排序**
+#### 指定检索执行的位置（preference）
+elasticsearch 默认在分片之间随机执行，可以修改为一下方式：
+* \_primary
+  在主分片上执行。
+* \_primary_first
+  优先在主分片上执行，如果主分片不可用，则在其他分片上执行。
+* \_local
+  在请求发送到的节点上的分片上执行。
+* \_replica
+  在副本上执行。
+* \_replica_first
+  优先在副本上执行。
+* \_only_node:xyz
+  在 node_id 为 xyz 的节点上执行。
+* \_prefer_node:xyz
+  优先在 node_id 为 xyz 的节点上执行。
+* \_shards:2,3
+  在 2 和 3 分片上执行。
+* \_only_nodes
+  在子节点上执行。
+* custome
+  一个字符串值，带有相同的值的请求会在相同的节点上执行。
+
+```
+curl 'localhost:9200/twitter/_search?preference=_local' -d '{
+    "query":{
+        "term" : {"user" : "kimchy"}
+    }
+}'
+```
+#### DSL 查询
+DSL （Domain Specific Language）包含两种类型的子句：
+* Leaf query clauses
+  用特定的值查找特定的字段
+* 复合子句
+  Leaf query clauses 和 复合子句的包装
+##### 全文检索
+###### match_all
+```
+curl 'localhost:9200/twitter/_search?preference=_local' -d '{
+    "query":{
+        "match_all": { "boost" : 1.2 }
+    }
+}'
+```
+###### match
+```
+curl 'localhost:9200/twitter/_search?preference=_local' -d '{
+    "query":{
+        "match" : {
+            "message" : "Elasticsearch"
+        }
+    }
+}'
+```
+有三种类型：
+* **boolean match**
+默认的 match 查询类型。
+```
+
+```
+* **match_phrase**
+```
+
+```
+* **match_phrase_prefix**
+```
+
+```
+
+
+
+
+##### term 级别查询
+###### term 查询
+精确匹配给定的值。
+```
+curl 'localhost:9200/twitter/_search' -d '{
+    "query":{
+        "term" : {"user" : "kim"}
+    }
+}'
+```
+>term 不会解析查询的字段，即不会对字段分词
+
+###### terms 查询
+```
+curl 'localhost:9200/twitter/_search' -d '{
+    "query":{
+        "terms" : {
+            "user" : ["kimchy", "allen"]
+        }
+    }
+}'
+```
+
+
+#### 排序
 elasticsearch 使用的默认排序为得分逆序排序。
 ```
 "sort":[

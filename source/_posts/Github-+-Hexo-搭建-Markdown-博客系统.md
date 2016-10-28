@@ -1,9 +1,11 @@
 ---
-title: github + hexo 搭建 markdown 博客系统
+title: Github + Hexo 搭建 Markdown 博客系统
 date: 2016-07-14 19:20:12
 tags: hexo
 categories: 编程
 ---
+
+<!-- toc -->
 
 为了更好的积累和保存学习笔记，需要满足以下要求：
 
