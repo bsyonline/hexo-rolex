@@ -84,3 +84,8 @@ archive_generator:
     yearly: false
     monthly: false
     daily: false
+
+toc:
+  maxDepth: 3
+  class: toc
+  slugify: false

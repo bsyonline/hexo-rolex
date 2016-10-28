@@ -28,6 +28,7 @@
     "hexo-renderer-sass": "^0.2.0",
     "hexo-renderer-stylus": "^0.2.3",
     "hexo-server": "^0.2.0",
+    "hexo-toc": "^1.0.4",
     "hexo-util": "^0.6.0",
     "jsdom": "^9.4.1",
     "strip-indent": "^2.0.0"
