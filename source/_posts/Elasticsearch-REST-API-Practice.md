@@ -284,7 +284,7 @@ DSL （Domain Specific Language）包含两种类型的子句：
 ##### 全文检索
 ###### match_all
 ```
-curl 'localhost:9200/twitter/_search?preference=_local' -d '{
+curl 'localhost:9200/twitter/_search' -d '{
     "query":{
         "match_all": { "boost" : 1.2 }
     }
@@ -292,7 +292,7 @@ curl 'localhost:9200/twitter/_search?preference=_local' -d '{
 ```
 ###### match
 ```
-curl 'localhost:9200/twitter/_search?preference=_local' -d '{
+curl 'localhost:9200/twitter/_search' -d '{
     "query":{
         "match" : {
             "message" : "Elasticsearch"
@@ -304,15 +304,45 @@ curl 'localhost:9200/twitter/_search?preference=_local' -d '{
 * **boolean match**
 默认的 match 查询类型。
 ```
-
+curl 'localhost:9200/twitter/_search' -d '{
+    "query":{
+        "match" : {
+            "message" : {
+                "query" : "trying Elasticsearch",
+                "operator" : "and"
+            }
+        }
+    }
+}'
 ```
+operator 的取值为 or 或 and ，默认为 or 。
 * **match_phrase**
+使用 slop 来定义查询的词之间间隔多少个词算查询匹配。
 ```
-
+curl 'localhost:9200/twitter/_search' -d '{
+    "query":{
+        "match_phrase" : {
+            "message" : {
+                "query" : "trying Elasticsearch",
+                "slop" : 2
+            }
+        }
+    }
+}'
 ```
 * **match_phrase_prefix**
+可以将最后一个词作为前缀匹配。比 match_phrase 多了一个 max_expansions 参数，表名最后一个词可以扩展多少个前缀。
 ```
-
+curl 'localhost:9200/twitter/_search' -d '{
+    "query":{
+        "match_phrase_prefix" : {
+            "message" : {
+                "query" : "using E",
+                "max_expansions": 20
+            }
+        }
+    }
+}'
 ```
 
 
